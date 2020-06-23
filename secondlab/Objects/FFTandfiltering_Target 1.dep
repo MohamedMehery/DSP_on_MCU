@@ -1,0 +1,49 @@
+Dependencies for Project 'FFTandfiltering', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
+F (.\main.c)(0x5EF238BE)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I.\RTE\Compiler-I.\RTE\Device\STM32F103C8-I.\RTE\_Target_1-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\ARM_Compiler\1.6.3\Include"-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_MD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x58258CCC)
+I (.\RTE\_Target_1\RTE_Components.h)(0x5EBD2EC2)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F2582)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9BA508)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F2582)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E835B22)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F2582)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x58258CCC)
+I (signals.h)(0x5EBEFE7B)
+I (fft.h)(0x5EF1F18F)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x5D9BA502)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9BA502)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9BA50A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5D9BA50A)
+F (.\fft.h)(0x5EF1F18F)()
+F (.\fft.c)(0x5EF1F18F)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I.\RTE\Compiler-I.\RTE\Device\STM32F103C8-I.\RTE\_Target_1-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\ARM_Compiler\1.6.3\Include"-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_MD-o .\objects\fft.o --omf_browse .\objects\fft.crf --depend .\objects\fft.d)
+I (fft.h)(0x5EF1F18F)
+I (C:\Keil_v5\ARM\ARMCC\include\assert.h)(0x5D9BA502)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5D9BA502)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9BA50A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5D9BA50A)
+F (.\signals.h)(0x5EBEFE7B)()
+F (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\ARM_Compiler\1.6.3\Source\EventRecorder.c)(0x5B8FA4DE)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I.\RTE\Compiler-I.\RTE\Device\STM32F103C8-I.\RTE\_Target_1-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\ARM_Compiler\1.6.3\Include"-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_MD-o .\objects\eventrecorder.o --omf_browse .\objects\eventrecorder.crf --depend .\objects\eventrecorder.d)
+I (.\RTE\_Target_1\RTE_Components.h)(0x5EBD2EC2)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x58258CCC)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F2582)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9BA508)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F2582)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E835B22)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F2582)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x58258CCC)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5D9BA508)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\ARM_Compiler\1.6.3\Include\EventRecorder.h)(0x5B8FA4DE)
+I (.\RTE\Compiler\EventRecorderConf.h)(0x5E6F7D4C)
+F (RTE\Compiler\EventRecorderConf.h)(0x5E6F7D4C)()
+F (RTE\Device\STM32F103C8\RTE_Device.h)(0x59283406)()
+F (RTE\Device\STM32F103C8\startup_stm32f10x_md.s)(0x58258CCC)(--cpu Cortex-M3 -g --apcs=interwork -I.\RTE\Compiler-I.\RTE\Device\STM32F103C8-I.\RTE\_Target_1-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\ARM_Compiler\1.6.3\Include"-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"--pd "__UVISION_VERSION SETA 529" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list .\listings\startup_stm32f10x_md.lst --xref -o .\objects\startup_stm32f10x_md.o --depend .\objects\startup_stm32f10x_md.d)
+F (RTE\Device\STM32F103C8\system_stm32f10x.c)(0x58258CCC)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I.\RTE\Compiler-I.\RTE\Device\STM32F103C8-I.\RTE\_Target_1-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\ARM_Compiler\1.6.3\Include"-I"C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_MD-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x58258CCC)
+I (.\RTE\_Target_1\RTE_Components.h)(0x5EBD2EC2)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F2582)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5D9BA508)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F2582)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E835B22)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F2582)
+I (C:\Users\Mohamed Mehery\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x58258CCC)
