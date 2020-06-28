@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\FFTandfiltering.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\FFTandfiltering.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Jun 23 19:15:43 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Jun 28 14:14:17 2020
 <BR><P>
-<H3>Maximum Stack Usage =       1840 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       1312 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; ifft &rArr;  ifft (Cycle)
 <P>
@@ -205,7 +205,7 @@ Global Symbols
 <P><STRONG><a name="[a8]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[4b]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1840 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 1312 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; ifft &rArr;  ifft (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -597,7 +597,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ifft
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fft
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[6c]"></a>fft</STRONG> (Thumb, 410 bytes, Stack size 96 bytes, fft.o(i.fft))
@@ -638,16 +637,10 @@ Global Symbols
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[4c]"></a>main</STRONG> (Thumb, 506 bytes, Stack size 1552 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 1840<LI>Call Chain = main &rArr; ifft &rArr;  ifft (Cycle)
+<P><STRONG><a name="[4c]"></a>main</STRONG> (Thumb, 198 bytes, Stack size 1024 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 1312<LI>Call Chain = main &rArr; ifft &rArr;  ifft (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ifft
+<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ifft
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fft
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
@@ -665,7 +658,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ifft
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fft
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[6d]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
@@ -673,7 +665,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ifft
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fft
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[73]"></a>_d2f</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f), UNUSED)
@@ -707,7 +698,6 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ifft
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fft
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[7b]"></a>_ddiv</STRONG> (Thumb, 552 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv), UNUSED)
@@ -730,7 +720,6 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ifft
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fft
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[b3]"></a>_dflt</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt), UNUSED)
@@ -749,7 +738,6 @@ Global Symbols
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ifft
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fft
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 </UL>
 
