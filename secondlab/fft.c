@@ -3,7 +3,7 @@
 
 /* Factored discrete Fourier transform, or FFT, and its inverse iFFT */
 
-#define q	3		/* for 2^3 points */
+#define q	6		/* for 2^3 points */
 #define N	(1<<q)		/* N-point FFT, iFFT */
 
 
