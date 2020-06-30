@@ -56,9 +56,9 @@ int main()
 				excution_flag = 1;
 				fft( v, N, scratch ); 
 				excution_flag = 0;
-				excution_flag = 1;
-				dft( v ); 
-				excution_flag = 0;
+				//excution_flag = 1;
+				//dft( v ); 
+				//excution_flag = 0;
 				
 				/**@brief this loop display the fft of v on logic analyzer*/			
 				for(k = 0 ; k < N ; k++)
@@ -163,6 +163,13 @@ int main()
 
 void fftconv( const real* signal , uint32_t signalsize ,const int32_t *filter ,float* output)
 {
+
+/**
+The steps involved in fast convolution are as follows:
+1. Transform a block of input samples into the frequency domain using the FFT.
+2. Multiply the frequency-domain representation of the input signal by the
+frequency-domain representation of the filter coefficients.
+3. Transform the result back into the time domain by using the inverse FFT.*//*
 	int i;
 	complex sig[signalsize];
 	complex filt[signalsize];
