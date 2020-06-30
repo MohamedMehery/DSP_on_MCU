@@ -9,16 +9,34 @@
 
 
 /* Print a vector of complexes as ordered pairs. */
- void print_vector(
-	     const char *title,
-	     complex *x,
-	     int n)
+ void print_vector( const char *title, complex *x, int n)
 {
   int i;
   printf("%s (dim=%d):", title, n);
   for(i=0; i<n; i++ ) printf(" %5.2f,%5.2f ", x[i].Re,x[i].Im);
   putchar('\n');
   return;
+}
+
+void dft(complex *x )
+{
+	complex result[N];
+	int k,n;
+	for (k=0 ; k<N ; k++)
+	 {
+	 result[k].Re = 0.0;
+	 result[k].Im = 0.0;
+
+	 for (n=0 ; n<N ; n++)
+	 {
+	 result[k].Re += x[n].Re*cosf(2*PI*k*n/N) + x[n].Im*sinf(2*PI*k*n/N);
+	 result[k].Im += x[n].Im*cosf(2*PI*k*n/N) - x[n].Re*sinf(2*PI*k*n/N);
+	 }
+	 }
+	 for (k=0 ; k<N ; k++)
+	 {
+	 x[k] = result[k];
+ }
 }
 
 /*

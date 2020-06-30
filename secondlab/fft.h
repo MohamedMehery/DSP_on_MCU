@@ -18,5 +18,6 @@ typedef struct{real Re; real Im;} complex;
 	     int n);
  void fft( complex *v, int n, complex *tmp );
  void ifft( complex *v, int n, complex *tmp );
+ void dft(complex *x );
 
 #endif 

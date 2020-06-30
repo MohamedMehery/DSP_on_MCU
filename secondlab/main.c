@@ -3,7 +3,7 @@
 #include "fft.h"
 
 #define N 64
-#define LOOP_Cycle 5
+#define LOOP_Cycle (wavesignal_size/N)
 
 extern const int32_t lowpassfilter[lpsize];
 extern const float inputSignal_f32_1kHz_15kHz[wavesignal_size];
@@ -15,6 +15,7 @@ static float IFFTcurrent_value_v = 0;
 static float IFFTcurrent_value_v1 = 0;
 static float current_value_v = 0;
 static float current_value_v1 = 0;
+static float excution_flag = 0;
 
 int main()
 {
@@ -31,22 +32,53 @@ int main()
       v1[k].Im = -300*sin(2*PI*k/(double)N);
 			}*/
 	
-	
-//			for(k=0; k<N; k++) {
-					//fill signal with the values of square signal
-//				v[k].Re = 0;
-//				v1[k].Re = 0;
-//				v[k].Im = 0;
-//				v1[k].Im = 0;
-//				
-//				if(k < (N/2 + 10) || k > (N/2 - 10))
-//				{
-//					v[k].Re = 100 ;
-//					v1[k].Re = 100 ;
-//				}				
-//			}
+			/** @brief fill signal with the values of square signal*/
+
+				for(k=0; k< N; k++) {
+					v[k].Re = 0;
+					v[k].Im = 0;
+					
+					if((k < (N/2 - N/4)) )
+					{
+						v[k].Re = 1 ;
+					}				
+				}
+
+				
+				/**@brief this loop display the v.Re on logic analyzer */
+				for(k = 0 ; k < N ; k++)
+				{
+					current_value_v = v[k].Re;
+				}
+				current_value_v = 0;
+				
+				/**@brief this perofm an FFT or DFT */	
+				excution_flag = 1;
+				fft( v, N, scratch ); 
+				excution_flag = 0;
+				excution_flag = 1;
+				dft( v ); 
+				excution_flag = 0;
+				
+				/**@brief this loop display the fft of v on logic analyzer*/			
+				for(k = 0 ; k < N ; k++)
+				{
+					FFTcurrent_value_v = v[k].Re;
+				}
+				FFTcurrent_value_v = 0;
 
 
+				/**@brief this perofm an Ifft */						
+				ifft( v, N, scratch ); 
+				
+				/**@brief this loop display the ifft of v on logic analyzer*/							
+				for(k = 0 ; k < N ; k++)
+				{
+					IFFTcurrent_value_v = v[k].Re;
+				}
+				IFFTcurrent_value_v = 0;		
+
+				
 			/**@brief this big loop perform fft and ifft on long signals*/
 
 			for( i = 0 ; i < LOOP_Cycle ; i++) 
@@ -101,6 +133,8 @@ int main()
 					scratch[k].Im = 0;					
 				}
 		}
+			
+
 //			for(k = 0 ; k < N ; k++)
 //			{
 //				current_value_v1 = v1[k].Re;
