@@ -1,0 +1,24 @@
+--cpu Cortex-M3
+"real_time_convolution\startup_stm32f103xb.o"
+"real_time_convolution\main.o"
+"real_time_convolution\stm32f1xx_it.o"
+"real_time_convolution\stm32f1xx_hal_msp.o"
+"real_time_convolution\fft.o"
+"real_time_convolution\rt_signal_processing.o"
+"real_time_convolution\stm32f1xx_hal_gpio_ex.o"
+"real_time_convolution\stm32f1xx_hal_tim.o"
+"real_time_convolution\stm32f1xx_hal_tim_ex.o"
+"real_time_convolution\stm32f1xx_hal.o"
+"real_time_convolution\stm32f1xx_hal_rcc.o"
+"real_time_convolution\stm32f1xx_hal_rcc_ex.o"
+"real_time_convolution\stm32f1xx_hal_gpio.o"
+"real_time_convolution\stm32f1xx_hal_dma.o"
+"real_time_convolution\stm32f1xx_hal_cortex.o"
+"real_time_convolution\stm32f1xx_hal_pwr.o"
+"real_time_convolution\stm32f1xx_hal_flash.o"
+"real_time_convolution\stm32f1xx_hal_flash_ex.o"
+"real_time_convolution\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "Real_time_convolution\Real_time_convolution.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Real_time_convolution.map" -o Real_time_convolution\Real_time_convolution.axf
