@@ -34,7 +34,7 @@ extern "C" {
 /* USER CODE BEGIN Includes */
 
 #include "fft.h"
-
+#include "RT_signal_processing.h"
 
 /* USER CODE END Includes */
 
@@ -62,6 +62,9 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
+
+extern float signal32_64_buffer[64];
+extern int32_t filter32_64_buffer[64];
 
 /* USER CODE END Private defines */
 

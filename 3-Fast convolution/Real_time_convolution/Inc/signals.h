@@ -1,12 +1,10 @@
 #ifndef _SIGNAL_H_
 #define _SIGNAL_H_
+
 #include "stdint.h"
 
-#define wavesignal_size		  320
-#define FILTER_LENGTH  32;
-
-extern float signal32_64_buffer[64];
-extern int32_t filter32_64_buffer[64];
+#define wavesignal_size	320
+#define FILTER_LENGTH 32
 
 
 const int32_t FILTER_ARRAY[32] = {

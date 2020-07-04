@@ -387,6 +387,21 @@
               <FileType>2</FileType>
               <FilePath>startup_stm32f103xb.s</FilePath>
             </File>
+            <File>
+              <FileName>RT_signal_processing.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\RT_signal_processing.c</FilePath>
+            </File>
+            <File>
+              <FileName>RT_signal_processing.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\RT_signal_processing.h</FilePath>
+            </File>
+            <File>
+              <FileName>signals.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\signals.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -424,16 +439,6 @@
               <FileName>signals.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Inc\signals.h</FilePath>
-            </File>
-            <File>
-              <FileName>RT_signal_processing.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\RT_signal_processing.c</FilePath>
-            </File>
-            <File>
-              <FileName>RT_signal_processing.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\RT_signal_processing.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -47,8 +47,12 @@
 DMA_HandleTypeDef hdma_memtomem_dma1_channel1;
 /* USER CODE BEGIN PV */
 
+ static float signal_current_value = 0;
+ static float buffer_current_value = 0;
+
  float signal32_64_buffer[64];
  int32_t filter32_64_buffer[64];
+ 
 extern const float inputSignal_f32_1kHz_15kHz[320] ;
 extern const int32_t FILTER_ARRAY[32];
 
@@ -75,6 +79,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 
+	
   /* USER CODE END 1 */
   
 
@@ -98,7 +103,27 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   /* USER CODE BEGIN 2 */
-
+	
+	int i,j ;complex conv_result[64] ; float Result_buffer[320];
+	/* this loop perform fast conv on input signal*/
+	for(i = 0 ; i< 10 ; i++)
+	{
+		Fast_convolution((float *)&inputSignal_f32_1kHz_15kHz[i*32] , (uint32_t*)&FILTER_ARRAY[0] , conv_result );
+		for( j = 16 ; j < 48 ; j++)
+		{
+			Result_buffer[i * 32 + j - 16] = conv_result[ j ].Re;
+			buffer_current_value = Result_buffer[i * 32 + j - 16];
+			conv_result[ j ].Re = 0;
+		}
+	}
+	
+	/*this loop digplay output result buffer on logic analyzer*/
+	for(i = 0 ; i < 320 ; i++)
+	{
+		signal_current_value = Result_buffer[i];
+	}
+	
+	
   /* USER CODE END 2 */
 
   /* Infinite loop */

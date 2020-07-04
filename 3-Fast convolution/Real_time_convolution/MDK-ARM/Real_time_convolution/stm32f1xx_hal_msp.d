@@ -27,3 +27,5 @@ real_time_convolution\stm32f1xx_hal_msp.o: ../Inc/fft.h
 real_time_convolution\stm32f1xx_hal_msp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
 real_time_convolution\stm32f1xx_hal_msp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 real_time_convolution\stm32f1xx_hal_msp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+real_time_convolution\stm32f1xx_hal_msp.o: ../Inc/RT_signal_processing.h
+real_time_convolution\stm32f1xx_hal_msp.o: ../Inc/main.h

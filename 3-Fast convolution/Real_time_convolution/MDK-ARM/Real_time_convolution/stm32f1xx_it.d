@@ -27,4 +27,6 @@ real_time_convolution\stm32f1xx_it.o: ../Inc/fft.h
 real_time_convolution\stm32f1xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
 real_time_convolution\stm32f1xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 real_time_convolution\stm32f1xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+real_time_convolution\stm32f1xx_it.o: ../Inc/RT_signal_processing.h
+real_time_convolution\stm32f1xx_it.o: ../Inc/main.h
 real_time_convolution\stm32f1xx_it.o: ../Inc/stm32f1xx_it.h
