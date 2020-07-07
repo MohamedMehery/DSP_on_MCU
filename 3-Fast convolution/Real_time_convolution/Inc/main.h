@@ -63,8 +63,6 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
 
-extern float signal32_64_buffer[64];
-extern int32_t filter32_64_buffer[64];
 
 /* USER CODE END Private defines */
 

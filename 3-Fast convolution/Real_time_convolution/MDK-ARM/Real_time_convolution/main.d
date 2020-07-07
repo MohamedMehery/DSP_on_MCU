@@ -29,4 +29,4 @@ real_time_convolution\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 real_time_convolution\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 real_time_convolution\main.o: ../Inc/RT_signal_processing.h
 real_time_convolution\main.o: ../Inc/main.h
-real_time_convolution\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\signal.h
+real_time_convolution\main.o: ../Inc/signals.h

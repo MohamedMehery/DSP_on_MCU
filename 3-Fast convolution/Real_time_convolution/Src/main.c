@@ -24,7 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include "signal.h"
+#include "signals.h"
 
 /* USER CODE END Includes */
 
@@ -47,14 +47,11 @@
 DMA_HandleTypeDef hdma_memtomem_dma1_channel1;
 /* USER CODE BEGIN PV */
 
- static float signal_current_value = 0;
- static float buffer_current_value = 0;
-
- float signal32_64_buffer[64];
- int32_t filter32_64_buffer[64];
+  float buffer_current_value = 0;
+  float current_value = 0;
  
 extern const float inputSignal_f32_1kHz_15kHz[320] ;
-extern const int32_t FILTER_ARRAY[32];
+extern const int32_t FILTER_ARRAY[FILTER_LENGTH];
 
 /* USER CODE END PV */
 
@@ -104,24 +101,20 @@ int main(void)
   MX_DMA_Init();
   /* USER CODE BEGIN 2 */
 	
-	int i,j ;complex conv_result[64] ; float Result_buffer[320];
+	int i,j ;complex conv_result[64] ;
+	
 	/* this loop perform fast conv on input signal*/
 	for(i = 0 ; i< 10 ; i++)
 	{
-		Fast_convolution((float *)&inputSignal_f32_1kHz_15kHz[i*32] , (uint32_t*)&FILTER_ARRAY[0] , conv_result );
-		for( j = 16 ; j < 48 ; j++)
-		{
-			Result_buffer[i * 32 + j - 16] = conv_result[ j ].Re;
-			buffer_current_value = Result_buffer[i * 32 + j - 16];
-			conv_result[ j ].Re = 0;
+		Fast_convolution((float *)&inputSignal_f32_1kHz_15kHz[ i * FILTER_LENGTH ], (uint32_t*)&FILTER_ARRAY[0] , &conv_result[0] );
+		for( j = 0 ; j < 64 ; j++)
+		{			
+			buffer_current_value  = conv_result[ j ].Re;
+			
 		}
+		buffer_current_value =0;
 	}
 	
-	/*this loop digplay output result buffer on logic analyzer*/
-	for(i = 0 ; i < 320 ; i++)
-	{
-		signal_current_value = Result_buffer[i];
-	}
 	
 	
   /* USER CODE END 2 */
@@ -193,7 +186,7 @@ static void MX_DMA_Init(void)
   hdma_memtomem_dma1_channel1.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
   hdma_memtomem_dma1_channel1.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
   hdma_memtomem_dma1_channel1.Init.Mode = DMA_NORMAL;
-  hdma_memtomem_dma1_channel1.Init.Priority = DMA_PRIORITY_LOW;
+  hdma_memtomem_dma1_channel1.Init.Priority = DMA_PRIORITY_HIGH;
   if (HAL_DMA_Init(&hdma_memtomem_dma1_channel1) != HAL_OK)
   {
     Error_Handler( );
