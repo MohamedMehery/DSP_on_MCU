@@ -1,7 +1,7 @@
 #include "RT_signal_processing.h"
 
  float signal32_64_buffer[64];
- int32_t filter32_64_buffer[64];
+ float filter32_64_buffer[64];
  
 /**
 * @brief this function fill the signal32_64buffer and badding 32 zeros in array.
@@ -78,7 +78,7 @@ void Fast_convolution(float * signal_sample,float * filter_arr , complex * outpu
 	for(i = 0 ; i < 64 ; i++)
 	{
 		original_signal[i].Re = signal32_64_buffer[i];
-		//current_value = signal32_64_buffer[i];			done 
+		//current_value = filter32_64_buffer[i]; 
 		filter_sample[i].Re = filter32_64_buffer[i];
 	}
 	current_value = 0;
@@ -107,7 +107,6 @@ void Fast_convolution(float * signal_sample,float * filter_arr , complex * outpu
 	{
 		Real_buff = output[i].Re * output[i].Re;
 		Imag_buff = output[i].Im * output[i].Im;
-		
 		buffer_current_value = sqrt(Real_buff + Imag_buff);		
 	}		
 }
