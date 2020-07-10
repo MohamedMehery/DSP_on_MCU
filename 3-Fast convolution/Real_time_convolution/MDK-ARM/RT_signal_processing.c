@@ -19,14 +19,14 @@ void fill_signal_buffer(float * signal_sample)
 	for(i = 0 ; i < 32 ; i++)
 	{
 		signal32_64_buffer[i] = signal_sample[i];
-		current_value = signal32_64_buffer[i];		
+//		current_value = signal32_64_buffer[i];		
 	}
 	
 	/* perform zero padding*/
 	for( i = 32 ; i < 64 ; i++)
 	{
 		signal32_64_buffer[i] = 0;	
-		current_value = signal32_64_buffer[i];		
+//		current_value = signal32_64_buffer[i];		
 	}	
 	
 }
@@ -36,7 +36,7 @@ void fill_signal_buffer(float * signal_sample)
 *	@param pointer to first word in filter array.
 *	@retval None.
 */
-void fill_filter_buffer(uint32_t * filter_sample)
+void fill_filter_buffer(float * filter_sample)
 {
 	int i ;
 	/* transfer signal 32 point sample to buffer */
@@ -67,27 +67,33 @@ void fill_filter_buffer(uint32_t * filter_sample)
 *	@param pointer to first word in signal,filter and output array.
 *	@retval None.
 */
-void Fast_convolution(float * signal_sample,uint32_t * filter_arr , complex * output)
+void Fast_convolution(float * signal_sample,float * filter_arr , complex * output)
 {
-	int i;
+	int i;double Real_buff , Imag_buff;
+	
 	complex filter_sample[64],scratch[64] , original_signal[64];
+	
 	fill_signal_buffer(signal_sample);
 	fill_filter_buffer(filter_arr);
 	for(i = 0 ; i < 64 ; i++)
 	{
 		original_signal[i].Re = signal32_64_buffer[i];
-//		current_value = signal32_64_buffer[i];		
+		//current_value = signal32_64_buffer[i];			done 
 		filter_sample[i].Re = filter32_64_buffer[i];
 	}
+	current_value = 0;
 	fft(original_signal,64,scratch);
 	fft(filter_sample,64,scratch);
 	
-//	for( i = 0 ; i < 64 ; i++)
-//	{
-//		
-//		current_value = 100*original_signal[i].Re;	
-//		
-//	}	
+	for( i = 0 ; i < 64 ; i++)
+	{
+		Real_buff = original_signal[i].Re * original_signal[i].Re;
+		Imag_buff = original_signal[i].Im * original_signal[i].Im;
+		
+		current_value = sqrt(Real_buff + Imag_buff);				
+		
+	}	
+	current_value = 0;
 	
 	for(i = 0 ; i < 64 ; i++)
 	{
@@ -99,7 +105,10 @@ void Fast_convolution(float * signal_sample,uint32_t * filter_arr , complex * ou
 	ifft(output,64,scratch);
 	for( i = 0 ; i < 64 ; i++)
 	{
-		buffer_current_value = output[i].Re;		
+		Real_buff = output[i].Re * output[i].Re;
+		Imag_buff = output[i].Im * output[i].Im;
+		
+		buffer_current_value = sqrt(Real_buff + Imag_buff);		
 	}		
 }
 

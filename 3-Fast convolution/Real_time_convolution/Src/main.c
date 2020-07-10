@@ -47,11 +47,14 @@
 DMA_HandleTypeDef hdma_memtomem_dma1_channel1;
 /* USER CODE BEGIN PV */
 
-  float buffer_current_value = 0;
-  float current_value = 0;
- 
+//uint8_t voice[8000];
+
+//this two variable are made to be shown on logic analyzer in simulation mode of keil
+float buffer_current_value = 0;
+float current_value = 0;
+
 extern const float inputSignal_f32_1kHz_15kHz[320] ;
-extern const int32_t FILTER_ARRAY[FILTER_LENGTH];
+extern const float FILTER_ARRAY[FILTER_LENGTH];
 
 /* USER CODE END PV */
 
@@ -75,8 +78,8 @@ static void MX_DMA_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+	int i,j ;double Real_buff , Imag_buff;
 
-	
   /* USER CODE END 1 */
   
 
@@ -101,7 +104,7 @@ int main(void)
   MX_DMA_Init();
   /* USER CODE BEGIN 2 */
 	
-	int i,j ;complex conv_result[64] ;
+	complex conv_result[64] ;
 	
 	/* this loop perform fast conv on input signal*/
 	for(i = 0 ; i< 10 ; i++)
@@ -109,8 +112,10 @@ int main(void)
 		Fast_convolution((float *)&inputSignal_f32_1kHz_15kHz[ i * FILTER_LENGTH ], (uint32_t*)&FILTER_ARRAY[0] , &conv_result[0] );
 		for( j = 0 ; j < 64 ; j++)
 		{			
-			buffer_current_value  = conv_result[ j ].Re;
+			Real_buff = conv_result[i].Re * conv_result[i].Re;
+			Imag_buff = conv_result[i].Im * conv_result[i].Im;
 			
+//			buffer_current_value = sqrt(Real_buff + Imag_buff);				
 		}
 		buffer_current_value =0;
 	}
