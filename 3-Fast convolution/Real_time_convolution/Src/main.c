@@ -79,7 +79,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	int i,j ;double Real_buff , Imag_buff;
-
+	
   /* USER CODE END 1 */
   
 
@@ -112,11 +112,13 @@ int main(void)
 		Fast_convolution((float *)&inputSignal_f32_1kHz_15kHz[ i * FILTER_LENGTH ], (uint32_t*)&FILTER_ARRAY[0] , &conv_result[0] );
 		for( j = 0 ; j < 64 ; j++)
 		{			
-			Real_buff = conv_result[i].Re * conv_result[i].Re;
-			Imag_buff = conv_result[i].Im * conv_result[i].Im;
-			
-//			buffer_current_value = sqrt(Real_buff + Imag_buff);				
+			Real_buff = conv_result[j].Re * conv_result[j].Re;
+			Imag_buff = conv_result[j].Im * conv_result[j].Im;
+			buffer_current_value = (float)sqrt(Real_buff + Imag_buff);
+			conv_result[j].Re = 0;
+			conv_result[j].Im = 0;
 		}
+
 		buffer_current_value =0;
 	}
 	

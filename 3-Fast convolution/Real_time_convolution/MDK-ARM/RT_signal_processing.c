@@ -78,7 +78,7 @@ void Fast_convolution(float * signal_sample,float * filter_arr , complex * outpu
 	for(i = 0 ; i < 64 ; i++)
 	{
 		original_signal[i].Re = signal32_64_buffer[i];
-		//current_value = filter32_64_buffer[i]; 
+//		current_value = filter32_64_buffer[i]; 
 		filter_sample[i].Re = filter32_64_buffer[i];
 	}
 	current_value = 0;
@@ -87,10 +87,10 @@ void Fast_convolution(float * signal_sample,float * filter_arr , complex * outpu
 	
 	for( i = 0 ; i < 64 ; i++)
 	{
-		Real_buff = original_signal[i].Re * original_signal[i].Re;
-		Imag_buff = original_signal[i].Im * original_signal[i].Im;
+		Real_buff = filter_sample[i].Re * filter_sample[i].Re;
+		Imag_buff = filter_sample[i].Im * filter_sample[i].Im;
 		
-		current_value = sqrt(Real_buff + Imag_buff);				
+		current_value = (float)sqrt(Real_buff + Imag_buff);				
 		
 	}	
 	current_value = 0;
@@ -103,12 +103,12 @@ void Fast_convolution(float * signal_sample,float * filter_arr , complex * outpu
 		
 	}
 	ifft(output,64,scratch);
-	for( i = 0 ; i < 64 ; i++)
-	{
-		Real_buff = output[i].Re * output[i].Re;
-		Imag_buff = output[i].Im * output[i].Im;
-		buffer_current_value = sqrt(Real_buff + Imag_buff);		
-	}		
+//	for( i = 0 ; i < 64 ; i++)
+//	{
+//		Real_buff = output[i].Re * output[i].Re;
+//		Imag_buff = output[i].Im * output[i].Im;
+//		current_value = (float)sqrt(Real_buff + Imag_buff);		
+//	}		
 }
 
 void slow_convolution(const	float * signal_arr,const  int32_t * impulse_response_arr , float * result 
