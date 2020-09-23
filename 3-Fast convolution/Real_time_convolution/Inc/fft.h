@@ -19,5 +19,7 @@ typedef struct{real Re; real Im;} complex;
  void fft( complex *v, int n, complex *tmp );
  void ifft( complex *v, int n, complex *tmp );
  void dft(complex *x );
+int check(int n) ;   //checking if the number of element is a power of 2
+int log_2(int n)   ; /*function to calculate the log2(.) of int numbers*/
 
 #endif 

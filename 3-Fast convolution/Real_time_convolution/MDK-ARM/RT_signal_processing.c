@@ -78,8 +78,9 @@ void Fast_convolution(float * signal_sample,float * filter_arr , complex * outpu
 	for(i = 0 ; i < 64 ; i++)
 	{
 		original_signal[i].Re = signal32_64_buffer[i];
-//		current_value = filter32_64_buffer[i]; 
+		current_value = filter32_64_buffer[i]; 
 		filter_sample[i].Re = filter32_64_buffer[i];
+		
 	}
 	current_value = 0;
 	fft(original_signal,64,scratch);
@@ -100,7 +101,7 @@ void Fast_convolution(float * signal_sample,float * filter_arr , complex * outpu
 		
 		output[i].Re = original_signal[i].Re * filter_sample[i].Re;
 		output[i].Im = original_signal[i].Im * filter_sample[i].Im;
-		
+		buffer_current_value = output[i].Re;
 	}
 	ifft(output,64,scratch);
 //	for( i = 0 ; i < 64 ; i++)

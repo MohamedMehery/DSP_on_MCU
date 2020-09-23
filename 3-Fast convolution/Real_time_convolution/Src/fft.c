@@ -6,7 +6,15 @@
 #define q	6		/* for 2^3 points */
 #define N	(1<<q)		/* N-point FFT, iFFT */
 
-
+int log_2(int n)    /*function to calculate the log2(.) of int numbers*/
+{
+	int k = n, i = 0;
+	while (k) {
+		k >>= 1;
+		i++;
+	}
+	return i - 1;
+}
 
 /* Print a vector of complexes as ordered pairs. */
  void print_vector( const char *title, complex *x, int n)
@@ -17,7 +25,10 @@
   putchar('\n');
   return;
 }
-
+int check(int n)    //checking if the number of element is a power of 2
+{
+	return n > 0 && (n & (n - 1)) == 0;
+}
 void dft(complex *x )
 {
 	complex result[N];
