@@ -15,4 +15,5 @@ void fill_filter_buffer(float * filter_sample);
 void Fast_convolution(float * signal_sample,float * filter_arr , complex * output);
 void slow_convolution(const	float * signal_arr,const  int32_t * impulse_response_arr , float * result 
 						, unsigned int signal_size , unsigned int impulse_size );
+int Decimation(int num , int size);
 #endif
