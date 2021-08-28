@@ -69,7 +69,7 @@ void fill_filter_buffer(float * filter_sample)
 */
 void Fast_convolution(float * signal_sample,float * filter_arr , complex * output)
 {
-	int i;double Real_buff , Imag_buff;
+	int i,j;double Real_buff , Imag_buff;
 	
 	complex filter_sample[64],scratch[64] , original_signal[64];
 	
@@ -98,12 +98,18 @@ void Fast_convolution(float * signal_sample,float * filter_arr , complex * outpu
 	
 	for(i = 0 ; i < 64 ; i++)
 	{
-		
-		output[i].Re = original_signal[i].Re * filter_sample[i].Re;
-		output[i].Im = original_signal[i].Im * filter_sample[i].Im;
-		buffer_current_value = output[i].Re;
+		j = Decimation(i , 64);
+		output[j].Re = original_signal[i].Re * filter_sample[i].Re;
+		output[j].Im = original_signal[i].Im * filter_sample[i].Im;
 	}
 	ifft(output,64,scratch);
+	
+	//show the output on the logic analyzer
+	for(i = 0 ; i < 64 ; i++)
+	{
+		buffer_current_value = output[i].Re;
+	}	
+	
 //	for( i = 0 ; i < 64 ; i++)
 //	{
 //		Real_buff = output[i].Re * output[i].Re;
@@ -111,6 +117,41 @@ void Fast_convolution(float * signal_sample,float * filter_arr , complex * outpu
 //		current_value = (float)sqrt(Real_buff + Imag_buff);		
 //	}		
 }
+/**
+* @brief this function return the number of most significant '1' 
+* @retval this fun return int in range of (0 - 31) represent the most 2's power in input number
+*/
+
+int towpownum(int input)
+{
+    int num = 0;
+    for(int i = 0 ; i < 32 ; i++)
+    {
+        if( (input & (1<<i)))
+        {
+            num = i;
+        }
+    }
+    return num;
+}
+/**
+* @brief this function perfom a decimation in int number e.g. '000011' it return '110000' 
+* @retval this fun return int in range of (0 - siz-1) represent decimation in binary bits
+*/
+int Decimation( int num , int siz)
+{
+    int temp = 0;
+    int pow2 = towpownum(siz);
+    for(int i = 0 ; i < pow2 ; i++)
+    {
+        if( num & (1<<i))
+        {
+            temp = temp | (1<<(pow2 - i - 1));
+        }
+    }
+    return temp;
+}
+
 
 void slow_convolution(const	float * signal_arr,const  int32_t * impulse_response_arr , float * result 
 						, unsigned int signal_size , unsigned int impulse_size )
