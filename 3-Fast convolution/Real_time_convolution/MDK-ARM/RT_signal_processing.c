@@ -96,12 +96,12 @@ void Fast_convolution(float * signal_sample,float * filter_arr , complex * outpu
 	}	
 	current_value = 0;
 	
-	for(i = 0 ; i < 64 ; i++)
-	{
-		j = Decimation(i , 64);
-		output[j].Re = original_signal[i].Re * filter_sample[i].Re;
-		output[j].Im = original_signal[i].Im * filter_sample[i].Im;
-	}
+//	for(i = 0 ; i < 64 ; i++)
+//	{
+//		j = Decimation(i , 64);							// perform anti decimation in time
+//		output[j].Re = original_signal[i].Re * filter_sample[i].Re;
+//		output[j].Im = original_signal[i].Im * filter_sample[i].Im;
+//	}
 	ifft(output,64,scratch);
 	
 	//show the output on the logic analyzer
@@ -167,4 +167,9 @@ void slow_convolution(const	float * signal_arr,const  int32_t * impulse_response
 			result[i+j] = result[i+j] + signal_arr[i]*impulse_response_arr[impulse_size - j - 1];
 		}
 	}
+		//show the output on the logic analyzer
+	for(i = 0 ; i < 64 ; i++)
+	{
+		buffer_current_value = result[i];
+	}	
 }
